@@ -5,12 +5,14 @@ jobs:
       - image: kkarczmarczyk/node-yarn
     steps:
       - checkout
+      - run: yarn
       - run: yarn test
   build:
     docker:
       - image: kkarczmarczyk/node-yarn
     steps:
       - checkout
+      - run: yarn
       - run: yarn build
       - run: yarn publish:gh-pages
 workflows:
