@@ -21,6 +21,8 @@
     ],
     "jsx-boolean-value": [
       false
-    ]
+    ],
+    "member-access": [true, "no-public"],
+    "no-implicit-dependencies": [true, "dev"]
   }
 }

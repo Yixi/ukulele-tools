@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.js --progress",
     "build": "webpack --config build/webpack.build.js --progress",
-    "test": "jest"
+    "test": "jest",
+    "publish:gh-pages": "node ./build/gh-pages-publish.js"
   },
   "dependencies": {
     "react": "^16.4.2",
