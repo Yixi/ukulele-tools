@@ -3,18 +3,48 @@
   "author": "yixi",
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.js --progress",
-    "build": "webpack --config build/webpack.build.js --progress"
+    "build": "webpack --config build/webpack.build.js --progress",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/testSetup.ts"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "verbose": true,
+    "roots": [
+      "./src"
+    ]
+  },
   "devDependencies": {
+    "@types/enzyme": "^3.1.13",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/jest": "^23.3.1",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.4.0",
     "fork-ts-checker-webpack-plugin": "^0.4.9",
+    "gh-pages": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "ts-loader": "^4.5.0",
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
+    "ts-loader": "^5.0.0",
     "tslint": "^5.11.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
