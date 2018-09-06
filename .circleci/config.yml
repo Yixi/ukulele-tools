@@ -5,26 +5,13 @@ jobs:
       - image: circleci/node:8.11.4-browsers
     steps:
       - checkout
-      - restore_cache:
-        name: Restore yarn package cache
-        keys:
-          - yarn-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
-      - save_cache:
-        name: save yarn package cache
-        key: yarn-packages-{{ checksum "yarn.lock" }}
-        paths:
-          - ~/.cache/yarn
       - run: yarn test
   build:
     docker:
       - image: circleci/node:8.11.4-browsers
     steps:
       - checkout
-      - restore_cache:
-          name: Restore yarn package cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
       - run: yarn build
       - add_ssh_keys:
