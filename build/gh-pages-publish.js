@@ -13,5 +13,6 @@ ghPages.publish(path.resolve(__dirname, '../dist'), {
     process.exit(0)
   } else {
     console.log('publish success')
+    process.exit(1)
   }
 })
