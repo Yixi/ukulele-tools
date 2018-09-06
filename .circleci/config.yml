@@ -27,6 +27,9 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run: yarn install
       - run: yarn build
+      - add_ssh_keys:
+          fingerprints:
+            - "4b:a6:e6:18:87:9f:ef:bf:8d:2d:56:fa:cc:f4:1b:b1"
       - run: yarn publish:gh-pages
 workflows:
   version: 2
