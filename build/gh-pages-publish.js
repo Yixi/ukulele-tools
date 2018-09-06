@@ -10,9 +10,9 @@ ghPages.publish(path.resolve(__dirname, '../dist'), {
   if (err) {
     console.error('publish fail')
     console.error(err)
-    process.exit(0)
+    process.exit(1)
   } else {
     console.log('publish success')
-    process.exit(1)
+    process.exit(0)
   }
 })
