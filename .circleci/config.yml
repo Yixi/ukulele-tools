@@ -2,27 +2,28 @@ version: 2
 jobs:
   test:
     docker:
-    - image: circleci/node:8.11.4-browsers
+      - image: circleci/node:8.11.4-browsers
     steps:
-    - checkout
-    - run: yarn install
-    - run: yarn test
+      - checkout
+      - run: yarn install
+      - run: yarn test
   build:
     docker:
-    - image: circleci/node:8.11.4-browsers
+      - image: circleci/node:8.11.4-browsers
     steps:
-    - checkout
-    - run: yarn install
-    - run: yarn build
-    - add_ssh_keys:
-        fingerprints:
-        - "4b:a6:e6:18:87:9f:ef:bf:8d:2d:56:fa:cc:f4:1b:b1"
-    - run: yarn publish:gh-pages
+      - checkout
+      - run: yarn install
+      - run: yarn build
+      - add_ssh_keys:
+          fingerprints:
+            - "4b:a6:e6:18:87:9f:ef:bf:8d:2d:56:fa:cc:f4:1b:b1"
+      - run: yarn publish:gh-pages
 workflows:
   version: 2
+
   test_and_deploy:
     jobs:
-    - test
-    - build:
-      requires:
       - test
+      - build:
+          requires:
+            - test
